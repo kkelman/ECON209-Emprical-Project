@@ -1,0 +1,33 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\imw1\Desktop\Approval Regression.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 4 Mar 2019, 12:51:51
+
+{com}. import excel "C:\Users\imw1\Desktop\APPROVAL and STOCK DATA.xlsx", sheet("approval_polllist") cellrange(A1873:AH2235) firstrow
+{res}
+{com}. reg adjusted_approve week1 week2 week3 week4 week5 postshutdown1 postshutdown2 stockreturnsavg, robust
+
+{txt}Linear regression                               Number of obs     = {res}       362
+                                                {txt}F(8, 353)         =  {res}    32.04
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3925
+                                                {txt}Root MSE          =    {res} 1.5195
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}adjusted_a~e{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}week1 {c |}{col 14}{res}{space 2}-1.151783{col 26}{space 2}   .54956{col 37}{space 1}   -2.10{col 46}{space 3}0.037{col 54}{space 4}-2.232606{col 67}{space 3}-.0709591
+{txt}{space 7}week2 {c |}{col 14}{res}{space 2}-.7890038{col 26}{space 2} .7111251{col 37}{space 1}   -1.11{col 46}{space 3}0.268{col 54}{space 4}-2.187579{col 67}{space 3} .6095709
+{txt}{space 7}week3 {c |}{col 14}{res}{space 2}-1.361729{col 26}{space 2} .5099545{col 37}{space 1}   -2.67{col 46}{space 3}0.008{col 54}{space 4} -2.36466{col 67}{space 3} -.358798
+{txt}{space 7}week4 {c |}{col 14}{res}{space 2}-2.349402{col 26}{space 2} .4191243{col 37}{space 1}   -5.61{col 46}{space 3}0.000{col 54}{space 4}-3.173697{col 67}{space 3}-1.525107
+{txt}{space 7}week5 {c |}{col 14}{res}{space 2}-2.834064{col 26}{space 2} .3062877{col 37}{space 1}   -9.25{col 46}{space 3}0.000{col 54}{space 4}-3.436442{col 67}{space 3}-2.231686
+{txt}postshutdo~1 {c |}{col 14}{res}{space 2}-2.627337{col 26}{space 2} .2560131{col 37}{space 1}  -10.26{col 46}{space 3}0.000{col 54}{space 4}-3.130839{col 67}{space 3}-2.123834
+{txt}postshutdo~2 {c |}{col 14}{res}{space 2}-1.692228{col 26}{space 2} .4546226{col 37}{space 1}   -3.72{col 46}{space 3}0.000{col 54}{space 4}-2.586337{col 67}{space 3}-.7981181
+{txt}stockretur~g {c |}{col 14}{res}{space 2} .0002806{col 26}{space 2} .0002659{col 37}{space 1}    1.06{col 46}{space 3}0.292{col 54}{space 4}-.0002424{col 67}{space 3} .0008036
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 36.84162{col 26}{space 2} 6.614717{col 37}{space 1}    5.57{col 46}{space 3}0.000{col 54}{space 4} 23.83241{col 67}{space 3} 49.85083
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. exit, clear
